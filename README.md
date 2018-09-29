@@ -18,9 +18,15 @@ pip install --user -r requirements.txt
 
 ### Run
 
-```
-python [script_name].py [dataset]
-```
+- To run individual scripts:
+    ```
+    python [script_name].py [dataset]
+    ```
+
+- To run all scripts:
+    ```
+    bash runall.sh titanic.csv
+    ```
 
 ### Datasets:
 
