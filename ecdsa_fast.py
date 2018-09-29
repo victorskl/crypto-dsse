@@ -23,7 +23,7 @@ def main():
     filename = sys.argv[1]
 
     # EC parameters
-    param_curve = curve.P256
+    param_curve = curve.secp256k1  # bitcoin curve
     param_hash = hashlib.sha256
 
     # Timing variables
@@ -31,7 +31,7 @@ def main():
     sign_time = 0
     verify_time = 0
 
-    logging.info("Started Fast ECDSA...")
+    logging.info("Started Fast ECDSA with curve: %s, sha: %s", param_curve, str(param_hash.__name__))
 
     with open(filename, "r") as f:
         # skip file reading time as well
@@ -40,9 +40,9 @@ def main():
         for m in f:
             logging.debug(m)
 
-            m = hashlib.sha256(m.encode()).hexdigest()
-
-            logging.debug(m)
+            # This is no longer required as message will be hashed during ecdsa.sign()
+            # m = hashlib.sha256(m.encode()).hexdigest()
+            # logging.debug(m)
 
             start_keygen = time.time()
             private_key, public_key = keys.gen_keypair(param_curve)
