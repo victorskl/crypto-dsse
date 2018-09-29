@@ -11,7 +11,16 @@ sudo apt-get install python-dev libgmp3-dev
 sudo yum install python-devel gmp-devel
 ```
 
-Every platform:
+Required `libsodium`:
+```
+brew install libsodium
+(OR)
+sudo apt-get install libsodium23
+(OR)
+sudo yum install libsodium
+```
+
+Python PIP requirements:
 ```
 pip install --user -r requirements.txt
 ```
@@ -38,6 +47,7 @@ Datasets are acquired from the following sources:
 ### Implementations:
 - https://github.com/pyca
 - https://github.com/pyca/pynacl
+- https://github.com/saltstack/libnacl
 - https://pypi.org/project/ed25519/
 - https://pypi.org/project/fastecdsa/
 - https://pypi.org/project/ecdsa/
